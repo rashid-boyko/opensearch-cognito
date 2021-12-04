@@ -1,9 +1,9 @@
 variable "cognito_domain" {
-  default = "cognito"
+  default = "codurance-test"
 }
 
 variable "name" {
-  default = "opensearch"
+  default = "opensearch-test"
 }
 
 variable "opensearch_domain_name" {
@@ -15,7 +15,7 @@ variable "opensearch_version" {
 }
 
 variable "opensearch_instance" {
-  default = "t2.small.opensearch"
+  default = "t2.small.elasticsearch"
 }
 
 variable "opensearch_instance_count" {
@@ -27,7 +27,7 @@ variable "opensearch_disk_size" {
 }
 
 variable "account_id" {
-  default = 570296576441
+  default = 570296576441 # To be replaced and stored in terraform.tfvars file, instead of variables.tf
 }
 
 variable "region" {
@@ -35,5 +35,5 @@ variable "region" {
 }
 
 variable "sns_topic_arn" {
-  default = "opensearch"
+  default = "opensearch-test"
 }

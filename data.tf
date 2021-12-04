@@ -45,3 +45,29 @@ data "aws_iam_policy_document" "es_access_policy" {
     resources = ["arn:aws:es:${var.region}:${var.account_id}:domain/${var.opensearch_domain_name}/*"]
   }
 }
+
+data "aws_iam_policy_document" "kibana_sns_policy" {
+  statement {
+    effect = "Allow"
+
+    actions = [
+      "sns:Publish",
+    ]
+
+    resources = [
+      var.sns_topic_arn,
+    ]
+  }
+
+  statement {
+    effect = "Allow"
+
+    actions = [
+      "es:*",
+    ]
+
+    resources = [
+      "${aws_elasticsearch_domain.es.arn}/*",
+    ]
+  }
+}
