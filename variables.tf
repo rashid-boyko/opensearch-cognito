@@ -1,29 +1,39 @@
-variable "cognito_domain" {}
-
-variable "name" {}
-
-variable "elasticsearch_domain_name" {}
-
-variable "elasticsearch_version" {
-  default = "7.9"
+variable "cognito_domain" {
+  default = "cognito"
 }
 
-variable "elasticsearch_instance" {
-  default = "t2.small.elasticsearch"
+variable "name" {
+  default = "opensearch"
 }
 
-variable "elasticsearch_instance_count" {
+variable "opensearch_domain_name" {
+  default = "opensearch"
+}
+
+variable "opensearch_version" {
+  default = "OS_1.0"
+}
+
+variable "opensearch_instance" {
+  default = "t2.small.opensearch"
+}
+
+variable "opensearch_instance_count" {
   default = 1
 }
 
-variable "elasticsearch_disk_size" {
+variable "opensearch_disk_size" {
   default = 35
 }
 
-variable "account_id" {}
-
-variable "region" {
-  default = "us-east-1"
+variable "account_id" {
+  default = 570296576441
 }
 
-variable "sns_topic_arn" {}
+variable "region" {
+  default = "eu-west-1"
+}
+
+variable "sns_topic_arn" {
+  default = "opensearch"
+}

@@ -1,16 +1,16 @@
 module "cognito" {
-  source     = "./cognito"
-  region = var.region
-  name = var.name
+  source         = "./cognito"
+  region         = var.region
+  name           = var.name
   cognito_domain = var.cognito_domain
 }
 
 resource "aws_elasticsearch_domain" "es" {
-  domain_name           = var.elasticsearch_domain_name
-  elasticsearch_version = var.elasticsearch_version
+  domain_name           = var.opensearch_domain_name
+  elasticsearch_version = var.opensearch_version
 
   cluster_config {
-    instance_type  = var.elasticsearch_instance
+    instance_type = var.opensearch_instance
   }
 
   ebs_options {
@@ -26,10 +26,10 @@ resource "aws_elasticsearch_domain" "es" {
   access_policies = data.aws_iam_policy_document.es_access_policy.json
 
   cognito_options {
-    enabled = true
-    user_pool_id = lookup(module.cognito.cognito_map, "user_pool")
+    enabled          = true
+    user_pool_id     = lookup(module.cognito.cognito_map, "user_pool")
     identity_pool_id = lookup(module.cognito.cognito_map, "identity_pool")
-    role_arn = aws_iam_role.cognito_es_role.arn
+    role_arn         = aws_iam_role.cognito_es_role.arn
   }
 
   encrypt_at_rest {
@@ -41,7 +41,7 @@ resource "aws_elasticsearch_domain" "es" {
   }
 
   domain_endpoint_options {
-    enforce_https = true
+    enforce_https       = true
     tls_security_policy = "Policy-Min-TLS-1-2-2019-07"
   }
 

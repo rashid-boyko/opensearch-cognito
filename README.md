@@ -1,12 +1,9 @@
-# Elasticsearch protected with Cognito
+# Opensearch protected with Cognito
 
-Module to provisioning elasticsearch domain protected with cognito.
+Module to provisioning opensearch domain protected with cognito.
 
 ## Main features:
 
-- Provision elasticsearch domain
-- Provision cognito pool to be able to login into elasticsearch domain
-- IAM permissions for elasticsearch alerting modules, and more. 
-
-### Todo
-- Improve readme.
+- Provision opensearch domain
+- Provision cognito pool to be able to login into opensearch domain
+- IAM permissions for opensearch alerting modules, and more. 
