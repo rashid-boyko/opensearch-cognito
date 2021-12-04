@@ -3,24 +3,22 @@ resource "aws_iam_role" "authenticated" {
 
   assume_role_policy = <<EOF
 {
-"Version": "2012-10-17",
-"Statement": [
-    {
-    "Effect": "Allow",
-    "Principal": {
-        "Federated": "cognito-identity.amazonaws.com"
-    },
-    "Action": "sts:AssumeRoleWithWebIdentity",
-    "Condition": {
-        "StringEquals": {
-        "cognito-identity.amazonaws.com:aud": "${aws_cognito_identity_pool.identity_pool.id}"
-        },
-        "ForAnyValue:StringLike": {
-        "cognito-identity.amazonaws.com:amr": "authenticated"
-        }
-    }
-    }
-]
+	"Version": "2012-10-17",
+	"Statement": [{
+		"Effect": "Allow",
+		"Principal": {
+			"Federated": "cognito-identity.amazonaws.com"
+		},
+		"Action": "sts:AssumeRoleWithWebIdentity",
+		"Condition": {
+			"StringEquals": {
+				"cognito-identity.amazonaws.com:aud": "${aws_cognito_identity_pool.identity_pool.id}"
+			},
+			"ForAnyValue:StringLike": {
+				"cognito-identity.amazonaws.com:amr": "authenticated"
+			}
+		}
+	}]
 }
 EOF
 }
@@ -31,19 +29,17 @@ resource "aws_iam_role_policy" "authenticated" {
 
   policy = <<EOF
 {
-"Version": "2012-10-17",
-"Statement": [
-  {
-  "Effect": "Allow",
-  "Action": [
-      "mobileanalytics:PutEvents",
-      "cognito-sync:*"
-  ],
-  "Resource": [
-      "*"
-  ]
-  }
-]
+	"Version": "2012-10-17",
+	"Statement": [{
+		"Effect": "Allow",
+		"Action": [
+			"mobileanalytics:PutEvents",
+			"cognito-sync:*"
+		],
+		"Resource": [
+			"*"
+		]
+	}]
 }
 EOF
 }
@@ -53,24 +49,22 @@ resource "aws_iam_role" "unauthenticated" {
 
   assume_role_policy = <<EOF
 {
-"Version": "2012-10-17",
-"Statement": [
-  {
-  "Effect": "Allow",
-  "Principal": {
-      "Federated": "cognito-identity.amazonaws.com"
-  },
-  "Action": "sts:AssumeRoleWithWebIdentity",
-  "Condition": {
-      "StringEquals": {
-      "cognito-identity.amazonaws.com:aud": "${aws_cognito_identity_pool.identity_pool.id}"
-      },
-      "ForAnyValue:StringLike": {
-      "cognito-identity.amazonaws.com:amr": "unauthenticated"
-      }
-  }
-  }
-]
+	"Version": "2012-10-17",
+	"Statement": [{
+		"Effect": "Allow",
+		"Principal": {
+			"Federated": "cognito-identity.amazonaws.com"
+		},
+		"Action": "sts:AssumeRoleWithWebIdentity",
+		"Condition": {
+			"StringEquals": {
+				"cognito-identity.amazonaws.com:aud": "${aws_cognito_identity_pool.identity_pool.id}"
+			},
+			"ForAnyValue:StringLike": {
+				"cognito-identity.amazonaws.com:amr": "unauthenticated"
+			}
+		}
+	}]
 }
 EOF
 }
@@ -81,19 +75,17 @@ resource "aws_iam_role_policy" "unauthenticated" {
 
   policy = <<EOF
 {
-"Version": "2012-10-17",
-"Statement": [
-  {
-  "Effect": "Allow",
-  "Action": [
-      "mobileanalytics:PutEvents",
-      "cognito-sync:*"
-  ],
-  "Resource": [
-      "*"
-  ]
-  }
-]
+	"Version": "2012-10-17",
+	"Statement": [{
+		"Effect": "Allow",
+		"Action": [
+			"mobileanalytics:PutEvents",
+			"cognito-sync:*"
+		],
+		"Resource": [
+			"*"
+		]
+	}]
 }
 EOF
 }

@@ -35,5 +35,5 @@ variable "region" {
 }
 
 variable "sns_topic_arn" {
-  default = "opensearch-test"
+  default = "opensearchtest"
 }
