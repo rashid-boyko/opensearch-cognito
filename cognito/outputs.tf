@@ -1,6 +1,6 @@
 output "cognito_map" {
   description = "cognito info"
-  value = { 
+  value = {
     "user_pool"     = aws_cognito_user_pool.user_pool.id
     "identity_pool" = aws_cognito_identity_pool.identity_pool.id
     "auth_arn"      = aws_iam_role.authenticated.arn
