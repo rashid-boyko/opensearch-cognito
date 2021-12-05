@@ -1,0 +1,12 @@
+variable "cognito_domain" {}
+variable "cognito_user_pool_id" {}
+variable "cognito_identity_pool_id" {}
+variable "name" {}
+variable "opensearch_domain_name" {}
+variable "opensearch_version" {}
+variable "opensearch_instance" {}
+variable "opensearch_instance_count" {}
+variable "opensearch_disk_size" {}
+variable "region" {}
+variable "sns_topic_arn" {}
+variable "access_policies" {}

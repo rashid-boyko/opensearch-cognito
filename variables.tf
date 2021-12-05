@@ -25,11 +25,6 @@ variable "opensearch_instance_count" {
 variable "opensearch_disk_size" {
   default = 35
 }
-
-variable "account_id" {
-  default = 570296576441 # To be replaced and stored in terraform.tfvars file, instead of variables.tf
-}
-
 variable "region" {
   default = "eu-west-1"
 }

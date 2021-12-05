@@ -7,3 +7,6 @@ Module to provisioning opensearch domain protected with cognito.
 - Provision opensearch domain
 - Provision cognito pool to be able to login into opensearch domain
 - IAM permissions for opensearch alerting modules, and more. 
+
+# Issues 
+sns topic arn

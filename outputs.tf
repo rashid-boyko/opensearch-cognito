@@ -1,13 +1,13 @@
 output "opensearch_endpoint" {
-  value = aws_elasticsearch_domain.es.endpoint
+  value = module.opensearch.opensearch_endpoint
 }
 
 output "opensearch_arn" {
-  value = aws_elasticsearch_domain.es.arn
+  value = module.opensearch.opensearch_arn
 }
 
 output "kibana_sns_role" {
-  value = aws_iam_role.kibana_sns_role.arn
+  value = module.opensearch.kibana_sns_role
 }
 
 output "cognito_user_pool_id" {
