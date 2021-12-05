@@ -60,6 +60,3 @@ data "aws_iam_policy_document" "kibana_sns_policy" {
     ]
   }
 }
-
-
-
