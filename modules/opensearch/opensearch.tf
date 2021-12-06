@@ -8,15 +8,13 @@ resource "aws_elasticsearch_domain" "es" {
 
   ebs_options {
     ebs_enabled = true
-    volume_type = "standard"
-    volume_size = 35
+    volume_type = var.opensearch_ebs_volume_type
+    volume_size = var.opensearch_ebs_volume_size
   }
 
-  advanced_options = {
-    "rest.action.multi.allow_explicit_index" = "true"
-  }
-
+  # IAM policy document specifying the access policies for the domain.
   access_policies = var.access_policies
+
 
   cognito_options {
     enabled          = true

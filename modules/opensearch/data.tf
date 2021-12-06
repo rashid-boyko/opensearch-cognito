@@ -1,5 +1,3 @@
-data "aws_caller_identity" "current" {}
-
 data "aws_iam_policy_document" "cognito_es_policy" {
   version = "2012-10-17"
   statement {
@@ -32,31 +30,5 @@ data "aws_iam_policy_document" "es_assume_policy" {
       identifiers = ["es.amazonaws.com"]
     }
     actions = ["sts:AssumeRole"]
-  }
-}
-
-data "aws_iam_policy_document" "kibana_sns_policy" {
-  statement {
-    effect = "Allow"
-
-    actions = [
-      "sns:Publish",
-    ]
-
-    resources = [
-      var.sns_topic_arn,
-    ]
-  }
-
-  statement {
-    effect = "Allow"
-
-    actions = [
-      "es:*",
-    ]
-
-    resources = [
-      "${aws_elasticsearch_domain.es.arn}/*",
-    ]
   }
 }
