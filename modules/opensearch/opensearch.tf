@@ -38,9 +38,5 @@ resource "aws_elasticsearch_domain" "es" {
     tls_security_policy = "Policy-Min-TLS-1-2-2019-07"
   }
 
-  snapshot_options {
-    automated_snapshot_start_hour = 23
-  }
-
   depends_on = [aws_iam_service_linked_role.es, aws_iam_role_policy_attachment.cognito_es_attach]
 }
