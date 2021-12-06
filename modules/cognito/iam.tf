@@ -16,8 +16,8 @@ resource "aws_iam_role" "unauthenticated" {
 
 resource "aws_iam_role_policy" "unauthenticated" {
   name   = "unauthenticated_policy"
-  role   = aws_iam_role.authenticated.id
-  policy = local.cognito_unauthenticated_role
+  role   = aws_iam_role.unauthenticated.id
+  policy = local.cognito_unauthenticated_policy
 }
 
 resource "aws_cognito_identity_pool_roles_attachment" "identity_pool" {

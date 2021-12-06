@@ -15,7 +15,7 @@ variable "opensearch_domain_name" {
 
 variable "opensearch_version" {
   type    = string
-  default = "OS_1.0"
+  default = "OpenSearch_1.0"
 }
 
 variable "opensearch_instance" {
